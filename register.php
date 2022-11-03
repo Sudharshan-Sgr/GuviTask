@@ -8,14 +8,10 @@
         $phno = $_POST['phno'];
 
         
-        // $servername = "sql12.freesqldatabase.com";
-        // $username = "sql12539150";
-        // $dbpassword = "MNjYKH611h";
-        // $dbname = "sql12539150";
-        $servername = "localhost";
-        $username = "root";
-        $dbpassword = "Deva@01234";
-        $dbname = "guvi";
+        $servername = "sql12.freesqldatabase.com";
+        $username = "sql12539150";
+        $dbpassword = "MNjYKH611h";
+        $dbname = "sql12539150";
         // Create connection
         $conn = mysqli_connect($servername, $username, $dbpassword, $dbname);
 
@@ -26,7 +22,7 @@
         }
 
         $stmt = $conn->prepare(
-            "insert into users(fullname,emailid,gender,password,phno) values(?,?,?,?,?)"
+            "insert into users(firstname,emailid,gender,password,phno) values(?,?,?,?,?)"
         );
 
         $jsonName = array(array(
