@@ -7,15 +7,15 @@
         $password = $_POST['password'];
         $phno = $_POST['phno'];
         
-        /*$servername = "localhost";
+        $servername = "localhost";
         $username = "root";
-        $dbpassword = "Deva@1234";
-        $dbname = "guvi";*/
+        $dbpassword = "root";
+        $dbname = "guvi";
         
-        $servername = "sql12.freesqldatabase.com";
-        $username = "sql12539150";
-        $dbpassword = "MNjYKH611h";
-        $dbname = "sql12539150";
+        // $servername = "sql12.freesqldatabase.com";
+        // $username = "sql12539150";
+        // $dbpassword = "MNjYKH611h";
+        // $dbname = "sql12539150";
         // Create connection*/
         $conn = mysqli_connect($servername, $username, $dbpassword, $dbname);
 
@@ -31,7 +31,6 @@
 
         $jsonName = array(array(
             'firstname' => $fullname,
-
             'email' => $emailid,
             'phno' => $phno
         ));
