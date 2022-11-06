@@ -18,7 +18,7 @@
                     url: "login.php",
                     data : $('form').serialize(),
                     success : function(){
-                        $(location).prop("href", "welcome.html");
+                        $(location).prop("href", "profile.html");
                     },
                     error: function(){
                         alert("Authentication failed");
@@ -50,7 +50,7 @@
                 <input type = "submit" class="btn btn-primary" value = "Submit">
             </div>
             
-            <p>Not have an account?<a href = "index.html">Sign Up Here</a></p>
+            <p>Not have an account?<a href = "register.html">Sign Up Here</a></p>
             
         </form>
     </div>

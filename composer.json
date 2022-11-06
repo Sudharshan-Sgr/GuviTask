@@ -1,3 +1,5 @@
 {
-	
+    "require": {
+        "mongodb/mongodb": "^1.13"
+    }
 }

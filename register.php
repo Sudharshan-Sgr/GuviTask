@@ -6,13 +6,17 @@
         $gender = $_POST['gender'];
         $password = $_POST['password'];
         $phno = $_POST['phno'];
-
+        
+        /*$servername = "localhost";
+        $username = "root";
+        $dbpassword = "Deva@1234";
+        $dbname = "guvi";*/
         
         $servername = "sql12.freesqldatabase.com";
         $username = "sql12539150";
         $dbpassword = "MNjYKH611h";
         $dbname = "sql12539150";
-        // Create connection
+        // Create connection*/
         $conn = mysqli_connect($servername, $username, $dbpassword, $dbname);
 
         // Check connection
@@ -22,17 +26,17 @@
         }
 
         $stmt = $conn->prepare(
-            "insert into users(firstname,emailid,gender,password,phno) values(?,?,?,?,?)"
+            "insert into users(firstname,emailid,password) values(?,?,?)"
         );
 
         $jsonName = array(array(
             'firstname' => $fullname,
-            'gender' => $gender,
+
             'email' => $emailid,
             'phno' => $phno
         ));
 
-        $stmt->bind_param("sssss",$fullname,$emailid,$gender,$password,$phno);
+        $stmt->bind_param("sss",$fullname,$emailid,$password);
         $stmt->execute();
         $stmt->close();
         

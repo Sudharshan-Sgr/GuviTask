@@ -4,8 +4,11 @@
         $emailid = $_POST['emailid'];
         $password = $_POST['password'];
 
-
-        $servername = "sql12.freesqldatabase.com";
+        /*$servername = "localhost";
+        $username = "root";
+        $dbpassword = "Deva@1234";
+        $dbname = "guvi";*/
+       $servername = "sql12.freesqldatabase.com";
         $username = "sql12539150";
         $dbpassword = "MNjYKH611h";
         $dbname = "sql12539150";
