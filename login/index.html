@@ -12,7 +12,7 @@
     <script>
         $(document).ready(function(){
             if(localStorage.getItem("id") != "null"){
-                $(location).prop("href","profile.html");
+                $(location).prop("href","/guvi/profile");
             }
             $('form').on("submit", function(e){
                 e.preventDefault();
@@ -22,7 +22,7 @@
                     data : $('form').serialize(),
                     success : function(response){
                         localStorage.setItem("id", response["id"]);
-                        $(location).prop("href", "profile.html");
+                        $(location).prop("href", "/guvi/profile");
                     },
                     error: function(data){
                         alert("Authentication failed" + data["msg"]);
@@ -54,7 +54,7 @@
                 <input type = "submit" class="btn btn-primary" value = "Submit">
             </div>
             
-            <p>Not have an account?<a href = "register.html">Sign Up Here</a></p>
+            <p>Not have an account?<a href = "/guvi/register/">Sign Up Here</a></p>
             
         </form>
     </div>

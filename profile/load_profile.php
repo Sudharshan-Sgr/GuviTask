@@ -1,5 +1,5 @@
 <?php
-    require 'vendor/autoload.php';   
+    require '../vendor/autoload.php';   
     use MongoDB\Driver\ServerApi;
     $serverApi = new ServerApi(ServerApi::V1);
     $client = new MongoDB\Client(
@@ -33,6 +33,7 @@
         }
     }
     $found = false;
+    $data = array();
     if($collection->count(["email" => $res_mail])){
         //TODO() load data from mongodb and update fields
         $found = true;
