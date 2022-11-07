@@ -9,39 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"
         ></script>
-    <script>
-        function func(){
-            var name = document.getElementById("name").value;
-            var emailid = document.getElementById("emailid").value;
-            var password = document.getElementById("password").value;
-
-            localStorage.setItem("name",name);
-            localStorage.setItem("emailid",emailid);
-            localStorage.setItem("password",password);
-
-            localStorage.name = name;
-            localStorage.emailid = emailid;
-            localStorage.password = password;
-
-        }
-
-      $(function () {
-            $('form').on('submit', function (e) {
-                e.preventDefault();
-                $.ajax({
-                    type: 'post',
-                    url: 'register.php',
-                    data: $('form').serialize(),
-                    success: function () {
-                        $(location).prop('href', '/login/')
-                    },
-                    error: function(){
-                        alert("Error happened: retry")
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="register.js"></script>
 
 </head>
 <body>

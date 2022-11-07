@@ -12,3 +12,20 @@ function func(){
     localStorage.password = password;
 
 }
+
+$(function () {
+    $('form').on('submit', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'post',
+            url: 'register.php',
+            data: $('form').serialize(),
+            success: function () {
+                $(location).prop('href', '/login/')
+            },
+            error: function(){
+                alert("Error happened: retry")
+            }
+        });
+    });
+});
