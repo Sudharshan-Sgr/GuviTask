@@ -33,7 +33,7 @@
                     url: 'register.php',
                     data: $('form').serialize(),
                     success: function () {
-                        $(location).prop('href', '/guvi/login/')
+                        $(location).prop('href', '/login/')
                     },
                     error: function(){
                         alert("Error happened: retry")
@@ -71,7 +71,7 @@
                 <div>
                     <input type = "submit" onclick= "func()" class="btn btn-primary" value = "Register">
                 </div>
-                <p>Already have an account?<a href = "/guvi/login">Sign In Here</a></p>
+                <p>Already have an account?<a href = "/login">Sign In Here</a></p>
             </form>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

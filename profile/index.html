@@ -13,11 +13,11 @@
    <script> 
         $(function () { 
             if(localStorage.getItem("id") == "null"){
-                $(location).prop("href","/guvi/login/");
+                $(location).prop("href","/login/");
             }
             $("#log_out").click(function(e){
                 localStorage.setItem("id", "null");
-                $(location).prop("href", "/guvi/login/");
+                $(location).prop("href", "/login/");
             });
             $.ajax({ 
                    type: 'post',
