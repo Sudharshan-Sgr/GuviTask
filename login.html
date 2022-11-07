@@ -17,11 +17,12 @@
                     type:"post",
                     url: "login.php",
                     data : $('form').serialize(),
-                    success : function(){
+                    success : function(response){
+                        localStorage.setItem("id", response["id"]);
                         $(location).prop("href", "profile.html");
                     },
-                    error: function(){
-                        alert("Authentication failed");
+                    error: function(data){
+                        alert("Authentication failed" + data["msg"]);
                     }
                 })
             });

@@ -1,12 +1,11 @@
-<html>
-    <body>
+
         <?php
         $emailid = $_POST['emailid'];
         $password = $_POST['password'];
 
         $servername = "localhost";
         $username = "root";
-        $dbpassword = "root";
+        $dbpassword = "Deva@01234";
         $dbname = "guvi";
     //    $servername = "sql12.freesqldatabase.com";
     //     $username = "sql12539150";
@@ -23,22 +22,24 @@
         $sql = "SELECT id, emailid, password FROM users";
         $result = $conn->query($sql);
         $success = false;
-
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 if($row['emailid'] == $emailid){
                     if($row['password'] == $password){
                         $success = true;
+                        $res_id =$row["id"];
                     }
                 }
             }
         }
-        $conn->close();
         if($success == false){
             header('HTTP/1.1 500 Internal Server');
             header('Content-Type: application/json; charset=UTF-8');
-            die(500);
+            echo json_encode(array("msg"=>"Wrong pass"));
+            die();
+        }else{
+            header('Content-Type: application/json');
+            header('HTTP/1.1 200 Success');
+            echo json_encode(array("id"=>$res_id));
         }
         ?>
-    </body>
-</html>
