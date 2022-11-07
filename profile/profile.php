@@ -1,6 +1,6 @@
 
 <?php
-    require 'vendor/autoload.php';   
+    require '../vendor/autoload.php';   
     use MongoDB\Driver\ServerApi;
     $serverApi = new ServerApi(ServerApi::V1);
     $client = new MongoDB\Client(

@@ -13,11 +13,11 @@
    <script> 
         $(function () { 
             if(localStorage.getItem("id") == "null"){
-                $(location).prop("href","login.html");
+                $(location).prop("href","/guvi/login/");
             }
             $("#log_out").click(function(e){
                 localStorage.setItem("id", "null");
-                $(location).prop("href", "login.html");
+                $(location).prop("href", "/guvi/login/");
             });
             $.ajax({ 
                    type: 'post',
@@ -42,6 +42,9 @@
                             $('input[name="country"]').val(data["country"]);
                             $('input[name="pin"]').val(data["pin"]);
                         }
+                    },
+                    error: function(){
+                        alert("error loading data");
                     }
             });
             $('form').on('submit', function(event){

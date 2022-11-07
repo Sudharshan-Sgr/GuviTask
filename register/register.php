@@ -3,9 +3,7 @@
     <?php
         $fullname = $_POST['name'];
         $emailid = $_POST['emailid'];
-        $gender = $_POST['gender'];
         $password = $_POST['password'];
-        $phno = $_POST['phno'];
         
         $servername = "localhost";
         $username = "root";
@@ -26,7 +24,7 @@
         }
 
         $stmt = $conn->prepare(
-            "insert into users(firstname,emailid,password) values(?,?,?)"
+            "insert into users(fullname,emailid,password) values(?,?,?)"
         );
 
         $jsonName = array(array(
@@ -42,8 +40,7 @@
         $select = "select * from users";
         $result = $conn->query($select);
         $data = $result->fetch_all(MYSQLI_ASSOC);
-        file_put_contents("myfiles.json", json_encode($data));
-
+        file_put_contents("../myfiles.json", json_encode($data));
         $conn->close();
         ?>
     </body>
