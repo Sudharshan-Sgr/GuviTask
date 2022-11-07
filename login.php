@@ -5,7 +5,7 @@
 
         $servername = "localhost";
         $username = "root";
-        $dbpassword = "Deva@01234";
+        $dbpassword = "root";
         $dbname = "guvi";
     //    $servername = "sql12.freesqldatabase.com";
     //     $username = "sql12539150";

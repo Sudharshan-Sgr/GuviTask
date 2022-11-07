@@ -1,7 +1,13 @@
 <?php
+    require 'vendor/autoload.php';   
+    use MongoDB\Driver\ServerApi;
+    $serverApi = new ServerApi(ServerApi::V1);
+    $client = new MongoDB\Client(
+    'mongodb+srv://sudharshan:sgr200110@cluster0.hmu0ajt.mongodb.net/?retryWrites=true&w=majority', [], ['serverApi' => $serverApi]);
+    $collection = $client->test->users;
     $servername = "localhost";
     $username = "root";
-    $dbpassword = "Deva@01234";
+    $dbpassword = "root";
     $dbname = "guvi";
     $id = $_POST["id"]; //temporary
     // $servername = "sql12.freesqldatabase.com";
@@ -26,15 +32,32 @@
             }
         }
     }
-    if($collection->count(["email" => $mail])){
+    $found = false;
+    if($collection->count(["email" => $res_mail])){
         //TODO() load data from mongodb and update fields
+        $found = true;
+        $res = $collection->find(["email" => $res_mail],['limit'=>1]);
+        foreach($res as $document){
+            $data = array(
+                "phno" => $document["phno"],
+                "age" => $document["age"],
+                "dob" => $document["dob"],
+                "address" => $document["address"],
+                "district" => $document["district"],
+                "state" => $document["state"],
+                "country" => $document["country"],
+                "pin" => $document["pin"]
+            );
+        }
     }
     header('Content-Type: application/json');
     header('HTTP/1.1 200 OK');
     $response = array(
         "fullname" => $res_fullname,
         "mail" => $res_mail,
-        "password" => $res_pass
+        "password" => $res_pass,
+        "found" => $found,
+        "data" => $data
     );
     echo json_encode($response);
     ?>

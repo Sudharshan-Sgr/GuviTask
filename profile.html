@@ -12,11 +12,12 @@
     
    <script> 
         $(function () { 
-            if(!localStorage.getItem("id")){
+            if(localStorage.getItem("id") == "null"){
                 $(location).prop("href","login.html");
             }
             $("#log_out").click(function(e){
-                localStorage.setItem("id", null);
+                localStorage.setItem("id", "null");
+                $(location).prop("href", "login.html");
             });
             $.ajax({ 
                    type: 'post',
@@ -30,6 +31,17 @@
                         $('input[name="email"]').val(response["mail"]);
                         $('input[name="email"]').prop('readonly', true);
                         $('input[name="password"]').val(response["password"]);
+                        if(response["found"]){
+                            var data = response["data"];
+                            $('input[name="phno"]').val(data["phno"]);
+                            $('input[name="age"]').val(data["age"]);
+                            $('input[name="dob"]').val(data["dob"]);
+                            $('input[name="address"]').val(data["address"]);
+                            $('input[name="district"]').val(data["district"]);
+                            $('input[name="state"]').val(data["state"]);
+                            $('input[name="country"]').val(data["country"]);
+                            $('input[name="pin"]').val(data["pin"]);
+                        }
                     }
             });
             $('form').on('submit', function(event){
@@ -51,10 +63,10 @@
    </script>
 </head>
 <body>
-    <div class="card text-center">
+    <div class="container mt-5 card text-center">
         <div class="card-body">
-            <h5 class="card-title">Profile</h5>
-            <form action = "profile.php" method = "post" enctype = "multipart/form-data">
+            <h5 class="card-title m-5">Profile</h5>
+            <form action = "profile.php">
                 <div class = "row mb-3">
                     <label for = "name" class="col-form-label col-sm-2">Full Name</label>
                     <div class="col-sm-10">
@@ -64,7 +76,7 @@
                 <div class = "row mb-3">
                     <label for = "email" class="col-form-label col-sm-2">Email ID</label>
                     <div class="col-sm-10">
-                        <input type = "email" class = "form-control" placeholder = "Enter your Email Adress" name="email" id="email" required disabled>
+                        <input type = "email" class = "form-control" placeholder = "Enter your Email Adress" name="email" id="email" required>
                     </div>
                 </div>
                 <div class = "row mb-3">
@@ -125,10 +137,10 @@
                     </div>
                 </div>
 
-                <div>
-                    <input type = "submit" class="btn btn-primary" value = "Update">
+                <div class="row mb-3 justify-content-center">
+                    <input type = "submit" class="btn btn-primary col-sm-1 m-5" value = "Update">
+                    <input type="button" id="log_out" class="btn btn-primary col-sm-1 m-5" value="Log Out">
                 </div>
-                <input type="button" id="log_out" class="btn btn-primary">Log Out</a>
             </form>
         </div>
     </div>
