@@ -10,8 +10,9 @@
         ></script>
     <script>
         $(function () {
-            
-            $(location).prop('href', '/register')
+            if(localStorage.getItem("id") != "null" &&  "id"in localStorage){
+                $(location).prop("href","/profile");
+            }else $(location).prop('href', '/register')
         });
                 
         

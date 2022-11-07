@@ -6,6 +6,7 @@ function func(){
     localStorage.setItem("name",name);
     localStorage.setItem("emailid",emailid);
     localStorage.setItem("password",password);
+    localStorage.setItem("id", "null");
 
     localStorage.name = name;
     localStorage.emailid = emailid;
