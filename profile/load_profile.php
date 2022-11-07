@@ -5,15 +5,15 @@
     $client = new MongoDB\Client(
     'mongodb+srv://sudharshan:sgr200110@cluster0.hmu0ajt.mongodb.net/?retryWrites=true&w=majority', [], ['serverApi' => $serverApi]);
     $collection = $client->test->users;
-    $servername = "localhost";
-    $username = "root";
-    $dbpassword = "root";
-    $dbname = "guvi";
-    $id = $_POST["id"]; //temporary
-    // $servername = "sql12.freesqldatabase.com";
-    // $username = "sql12539150";
-    // $dbpassword = "MNjYKH611h";
-    // $dbname = "sql12539150";
+    // $servername = "localhost";
+    // $username = "root";
+    // $dbpassword = "root";
+    // $dbname = "guvi";
+    $id = $_POST["id"];
+    $servername = "sql12.freesqldatabase.com";
+    $username = "sql12539150";
+    $dbpassword = "MNjYKH611h";
+    $dbname = "sql12539150";
 
     // Create connection
     $conn = new mysqli($servername, $username, $dbpassword, $dbname);

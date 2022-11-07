@@ -5,15 +5,15 @@
         $emailid = $_POST['emailid'];
         $password = $_POST['password'];
         
-        $servername = "localhost";
-        $username = "root";
-        $dbpassword = "root";
-        $dbname = "guvi";
+        // $servername = "localhost";
+        // $username = "root";
+        // $dbpassword = "root";
+        // $dbname = "guvi";
         
-        // $servername = "sql12.freesqldatabase.com";
-        // $username = "sql12539150";
-        // $dbpassword = "MNjYKH611h";
-        // $dbname = "sql12539150";
+        $servername = "sql12.freesqldatabase.com";
+        $username = "sql12539150";
+        $dbpassword = "MNjYKH611h";
+        $dbname = "sql12539150";
         // Create connection*/
         $conn = mysqli_connect($servername, $username, $dbpassword, $dbname);
 
